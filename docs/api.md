@@ -142,7 +142,7 @@ HOST: https://piaxi.resetbypear.com/api
 
         {
             "status": "OK",
-            "msg": "获取用户xxx的works列表成功",
+            "msg": "获取当前用户的works列表成功",
             "data": {
                 "works": [
                     {

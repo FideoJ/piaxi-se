@@ -93,6 +93,7 @@ function init(router) {
     'session',
     'bgm',
     'video',
+    'works',
   ];
   routers.forEach((rtrName) => {
     const oneRtr = require(path.join(__dirname, rtrName));
