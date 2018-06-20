@@ -2,7 +2,7 @@ const { queryDb } = require('../services/db');
 
 exports.retrieveAll = async () => {
   const sql = `
-    SELECT video_id, name
+    SELECT video_id, name, duration
     FROM video;
   `;
   const values = [];
@@ -11,7 +11,7 @@ exports.retrieveAll = async () => {
 
 exports.retrieveOne = async (video_id) => {
   const sql = `
-    SELECT video_id, name
+    SELECT video_id, name, duration
     FROM video
     WHERE video_id = ?;
   `;

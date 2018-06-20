@@ -16,7 +16,7 @@ exports.parseOneVideo = async (ctx, next, video_id) => {
 };
 
 exports.retrieveOne = async (ctx) => {
-  const { video: { video_id, name } } = ctx.paramData;
+  const { video: { video_id, name, duration } } = ctx.paramData;
   const roles = await Video.retrieveRolesForOne(video_id);
-  return sendData(ctx, { name, roles }, 'OK', `获取video${video_id}详情成功`);
+  return sendData(ctx, { name, duration, roles }, 'OK', `获取video${video_id}详情成功`);
 };

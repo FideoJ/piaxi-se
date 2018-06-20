@@ -25,6 +25,7 @@ DROP TABLE IF EXISTS `bgm`;
 CREATE TABLE `bgm` (
   `bgm_id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
+  `duration` int(11) NOT NULL,
   PRIMARY KEY (`bgm_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -56,6 +57,7 @@ DROP TABLE IF EXISTS `video`;
 CREATE TABLE `video` (
   `video_id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
+  `duration` int(11) NOT NULL,
   PRIMARY KEY (`video_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -87,4 +89,4 @@ CREATE TABLE `works` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-06-19 11:22:30
+-- Dump completed on 2018-06-20 14:54:53

@@ -48,11 +48,13 @@ HOST: https://piaxi.resetbypear.com/api
                 "videos": [
                     {
                         "video_id": 1,
-                        "name": "泰囧"
+                        "name": "泰囧",
+                        "duration": 10
                     },
                     {
                         "video_id": 2,
-                        "name": "无间道"
+                        "name": "无间道",
+                        "duration": 10
                     }
                 ]
             }
@@ -71,6 +73,7 @@ HOST: https://piaxi.resetbypear.com/api
             "msg": "获取video3详情成功",
             "data": {
                 "name": "无间道",
+                "duration": 10,
                 "roles": [
                     {
                         "role_id": 10,
@@ -99,11 +102,13 @@ HOST: https://piaxi.resetbypear.com/api
                 "bgms": [
                     {
                         "bgms_id": 1,
-                        "name": "天台"
+                        "name": "天台",
+                        "duration": 10
                     },
                     {
                         "bgms_id": 2,
-                        "name": "菜市场"
+                        "name": "菜市场",
+                        "duration": 10
                     }
                 ]
             }
@@ -119,7 +124,6 @@ HOST: https://piaxi.resetbypear.com/api
 
         {
             "video_id": 2,
-            "author": "wx-id"
         }
 
 + Response 200 (application/json)
@@ -144,12 +148,14 @@ HOST: https://piaxi.resetbypear.com/api
                     {
                         "works_id": 1,
                         "video_id": 23,
-                        "name": "无间道"
+                        "name": "无间道",
+                        "duration": 10
                     },
                     {
                         "works_id": 2,
                         "video_id": 12,
-                        "name": "泰囧"
+                        "name": "泰囧",
+                        "duration": 10
                     }
                 ]
             }
