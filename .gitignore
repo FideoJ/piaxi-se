@@ -1,1 +1,3 @@
 node_modules/
+docs/api.html
+src/config/env/development.js
