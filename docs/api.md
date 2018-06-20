@@ -3,6 +3,36 @@ HOST: https://piaxi.resetbypear.com/api
 
 # PIAXI 
 
+# Group Session
+
+## Sessions Collection [/sessions]
+
+### Create a session [POST]
+
++ Request (application/json)
+
+        {
+            "code": "071aeBTI06CYvh2SY2RI0CtqTI0aeBTB",
+        }
+
++ Response 200 (application/json)
+
+        {
+            "status": "OK",
+            "msg": "登录成功",
+            "data": {
+                "openid": "oWsRr5fWB2ppL4SyqEt4do2iD6T4"
+            }
+        }
+
++ Response 401 (application/json)
+
+        {
+            "status": "UNAUTHORIZED",
+            "msg": "weixin登录失败",
+            "data": {}
+        }
+
 # Group Video
 
 ## Videos Collection [/videos]

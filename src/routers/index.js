@@ -3,6 +3,7 @@ const Router = require('koa-express-router');
 const bodyParser = require('koa-bodyparser');
 
 const { AppError, handleException } = require('../utils');
+const RedisServ = require('../services/redis');
 
 // 默认设置
 Router.defaultOptions.mergeParams = true;
@@ -11,13 +12,15 @@ Router.defaultOptions.mergeParams = true;
  * @param {Application} app
  */
 module.exports = (app) => {
+  const sessionParser = getSessionParser(app);
   const apiRtr = new Router({ prefix: '/api' });
   apiRtr.use(
+    sessionParser,
     getBodyParser(),
     checkIsInWhiteList,
     handleException,
     initParam,
-    // blockUnauthorized,
+    blockUnauthorized,
   );
   init(apiRtr);
 
@@ -40,8 +43,14 @@ function getBodyParser() {
   return bodyParser(options);
 }
 
+
+function getSessionParser(app) {
+  return RedisServ.session(app);
+}
+
 // 无需登录即可访问的 API
 const whiteList = [
+  '/api/sessions',
 ];
 
 /**
@@ -68,19 +77,20 @@ async function initParam(ctx, next) {
   return next();
 }
 
-// /**
-//  * @param {Context} ctx
-//  * @param {{(): Promise<any>}} next
-//  */
-// async function blockUnauthorized(ctx, next) {
-//   if (ctx.isInWhiteList || ctx.session.curUser) {
-//     return next();
-//   }
-//   throw new AppError.SoftError(AppError.UNAUTHORIZED, '未登录');
-// }
+/**
+ * @param {Context} ctx
+ * @param {{(): Promise<any>}} next
+ */
+async function blockUnauthorized(ctx, next) {
+  if (ctx.isInWhiteList || ctx.session.curUser) {
+    return next();
+  }
+  throw new AppError.SoftError(AppError.UNAUTHORIZED, '未登录');
+}
 
 function init(router) {
   const routers = [
+    'session',
     'bgm',
     'video',
   ];

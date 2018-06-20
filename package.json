@@ -12,7 +12,7 @@
     "type": "git",
     "url": "ssh://git@github.com:FideoJ/piaxi-se.git"
   },
-  "author": "Fideo",
+  "author": "xiaodaolin",
   "license": "MIT",
   "homepage": "https://github.com/FideoJ/piaxi-se",
   "dependencies": {
@@ -23,7 +23,10 @@
     "koa-bodyparser": "^4.2.0",
     "koa-redis": "^3.0.0",
     "moment": "^2.18.1",
-    "mysql": "^2.14.1"
+    "mysql": "^2.14.1",
+    "redis": "^2.7.1",
+    "request": "^2.85.0",
+    "request-promise-native": "^1.0.4"
   },
   "devDependencies": {
     "eslint": "^4.3.0",

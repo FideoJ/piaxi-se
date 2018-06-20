@@ -11,4 +11,17 @@ module.exports = {
     database: 'piaxi',
     port: 3306,
   },
+  redis: {
+    host: 'localhost',
+    port: '6379',
+    db: 2,
+    namespaces: {
+      session: 'piaxi-se:session',
+    },
+  },
+  weixin: {
+    url: 'https://api.weixin.qq.com/sns/jscode2session',
+    appid: '',
+    appsecret: '',
+  }
 };
