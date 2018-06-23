@@ -1,10 +1,12 @@
 const { inspect } = require('util');
 const lodash = require('lodash');
 const AppError = require('./AppError');
+const { redis: { namespaces } } = require('../config');
 
 const isInDev = process.env.NODE_ENV === 'development';
 const isInProd = process.env.NODE_ENV === 'production';
 const { assign } = Object;
+const keyOfTask = (works_id, type) => `${namespaces.tasks}:${type}-${works_id}`;
 
 exports = module.exports = {
   sendData,
@@ -18,7 +20,7 @@ exports = module.exports = {
   assign,
   strsToNums,
   jsonParseProps,
-  undefineProps,
+  keyOfTask,
   isPositiveInt: '([1-9][0-9]{0,})',
 };
 
@@ -111,17 +113,5 @@ function jsonParseProps(arr, ...props) {
     props.forEach((prop) => {
       ele[prop] = JSON.parse(ele[prop]);
     });
-  });
-}
-
-/**
- * 将obj的某些属性设置为undefined，相比直接删除可能会提高垃圾回收的效率
- * @param   {Object}     obj
- * @param   {...string}  props
- */
-function undefineProps(obj, ...props) {
-  if (!obj) return;
-  props.forEach((prop) => {
-    obj[prop] = undefined;
   });
 }

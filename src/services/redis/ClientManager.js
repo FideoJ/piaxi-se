@@ -1,7 +1,10 @@
 const redis = require('redis');
+const bluebird = require('bluebird');
 const { redis: redisConfig } = require('../../config');
 const { assign } = require('../../utils');
 const { logger } = require('../../utils/logger');
+
+bluebird.promisifyAll(redis.RedisClient.prototype);
 
 class ClientManager {
   constructor() {

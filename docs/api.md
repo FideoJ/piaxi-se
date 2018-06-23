@@ -101,29 +101,23 @@ HOST: https://piaxi.resetbypear.com/api
             "data": {
                 "subtitle": [
                     {
-                        "startTime": 1000,
-                        "endTime": 2000,
-                        "text": "When you are old and grey and full of sleep,",
-                        "number": 1
+                        "start": 0,
+                        "end": 442,
+                        "text": "去哪"
                     },
                     {
-                        "startTime": 3000,
-                        "endTime": 3500,
-                        "text": "And nodding by the fire，take down this book.",
-                        "number": 2
+                        "start": 512,
+                        "end": 1418,
+                        "text": "我怎么知道"
                     },
                     {
-                        "startTime": 4000,
-                        "endTime": 4500,
-                        "text": "And slowly read,and dream of the soft look.",
-                        "number": 3
+                        "start": 1680,
+                        "end": 2733,
+                        "text": "你带的路"
                     }
                 ]
             }
         }
-
-
-
                 
 # Group Bgm
 
@@ -161,7 +155,7 @@ HOST: https://piaxi.resetbypear.com/api
 + Request(application/json)
 
         {
-            "video_id": 2,
+            "video_id": 2
         }
 
 + Response 200 (application/json)
@@ -235,22 +229,19 @@ HOST: https://piaxi.resetbypear.com/api
         {
             "subtitle": [
                 {
-                    "startTime": 1000,
-                    "endTime": 2000,
-                    "text": "When you are old and grey and full of sleep,",
-                    "number": 1
+                    "start": 0,
+                    "end": 442,
+                    "text": "去哪"
                 },
                 {
-                    "startTime": 3000,
-                    "endTime": 3500,
-                    "text": "And nodding by the fire，take down this book.",
-                    "number": 2
+                    "start": 512,
+                    "end": 1418,
+                    "text": "我怎么知道"
                 },
                 {
-                    "startTime": 4000,
-                    "endTime": 4500,
-                    "text": "And slowly read,and dream of the soft look.",
-                    "number": 3
+                    "start": 1680,
+                    "end": 2733,
+                    "text": "你带的路"
                 }
             ]
         }
@@ -295,50 +286,62 @@ HOST: https://piaxi.resetbypear.com/api
 + Response 200 (application/json)
 
         {
-            "tasks": [
-                {
-                    "type": "face",
-                    "state": "running",
-                    "created_at": 1529721555
-                },
-                {
-                    "type": "dub",
-                    "state": "ready",
-                    "created_at": 1529721589
-                }
-            ]
+            "status": "OK",
+            "msg": "任务进度查询成功",
+            "data": {
+                "tasks": [
+                    {
+                        "type": "face",
+                        "state": "running",
+                        "created_at": 1529721555
+                    },
+                    {
+                        "type": "dub",
+                        "state": "ready",
+                        "created_at": 1529721589
+                    }
+                ]
+            }
         }
 
 + Response 200 (application/json)
 
         {
-            "tasks": [
-                {
-                    "type": "face",
-                    "state": "finished",
-                    "created_at": 1529721555
-                },
-                {
-                    "type": "dub",
-                    "state": "running",
-                    "created_at": 1529721589
-                }
-            ]
+            "status": "OK",
+            "msg": "任务进度查询成功",
+            "data": {
+                "tasks": [
+                    {
+                        "type": "face",
+                        "state": "finished",
+                        "created_at": 1529721555
+                    },
+                    {
+                        "type": "dub",
+                        "state": "running",
+                        "created_at": 1529721589
+                    }
+                ]
+            }
         }
 
 + Response 200 (application/json)
 
         {
-            "tasks": [
-                {
-                    "type": "face",
-                    "state": "finished",
-                    "created_at": 1529721555
-                },
-                {
-                    "type": "dub",
-                    "state": "finished",
-                    "created_at": 1529721589
-                }
-            ]
+            "status": "OK",
+            "msg": "任务进度查询成功",
+            "data": {
+                "tasks": [
+                    {
+                        "type": "face",
+                        "state": "finished",
+                        "created_at": 1529721555
+                    },
+                    {
+                        "type": "dub",
+                        "state": "finished",
+                        "created_at": 1529721589
+                    }
+                ]
+            }
         }

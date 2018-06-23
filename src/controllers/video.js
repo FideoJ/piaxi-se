@@ -2,7 +2,7 @@ const request = require('request-promise-native');
 const { sendData, AppError } = require('../utils');
 const { filer } = require('../config');
 const Video = require('../models/video');
-const srt = require("srt").fromString;
+const srt = require("subtitle");
 const path = require('path');
 
 exports.retrieveAll = async (ctx) => {
@@ -28,7 +28,7 @@ exports.retrieveOne = async (ctx) => {
 exports.retrieveSubtitle = async (ctx) => {
   const { video: { video_id } } = ctx.paramData;
   const srtPath = filer.url + path.join('/videos', `${video_id}`, 'subtitle.srt');
-  const subtitleFile = await request(srtPath);
-  const subtitle = srt(subtitleFile);
+  const srtFile = await request(srtPath);
+  const subtitle = srt.parse(srtFile);
   return sendData(ctx, { subtitle }, 'OK', `获取video字幕成功`);
 }

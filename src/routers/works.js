@@ -19,6 +19,8 @@ router.use(`/:works_id${isPositiveInt}`, oneWorks());
 function oneWorks() {
   const idRtr = new Router({ mergeParams: true });
 
+  idRtr.post('/subtitle', worksCtrl.uploadSubtitle);
+
   idRtr.post('/face-replacing', worksCtrl.startFaceReplacing);
   idRtr.post('/dubbing', worksCtrl.startDubbing);
   idRtr.get('/progress', worksCtrl.queryProgress);

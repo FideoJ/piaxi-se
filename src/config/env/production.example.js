@@ -17,11 +17,15 @@ module.exports = {
     db: 2,
     namespaces: {
       session: 'piaxi-se:session',
+      tasks: 'piaxi-se:tasks',
     },
+  },
+  filer: {
+    url: 'https://piaxi-filer.resetbypear.com',
   },
   weixin: {
     url: 'https://api.weixin.qq.com/sns/jscode2session',
     appid: '',
     appsecret: '',
-  }
+  },
 };
