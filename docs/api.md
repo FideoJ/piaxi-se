@@ -166,19 +166,97 @@ HOST: https://piaxi.resetbypear.com/api
 + Parameters
     - works_id : 1 (number, required) - Works ID
 
-### Generate the product [POST]
+### Start face replacing [POST /face-replacing]
 
 + Request(application/json)
 
         {
-            "use_original_subtitle": false,
-            "bgm_id": 5
+            "role_id": 2
         }
 
 + Response 200 (application/json)
 
         {
             "status": "OK",
-            "msg": "视频合成成功",
-            "data": {}
+            "msg": "人脸替换任务提交成功",
+            "data": {
+                "task": {
+                    "state": "ready",
+                    "created_at": 1529721555
+                }
+            }
+        }
+
+### Start dubbing [POST /dubbing]
+
++ Request(application/json)
+
+        {
+            "bgm_id": 3
+        }
+
++ Response 200 (application/json)
+
+        {
+            "status": "OK",
+            "msg": "配音任务提交成功",
+            "data": {
+                "task": {
+                    "state": "ready",
+                    "created_at": 1529721589
+                }
+            }
+        }
+
+### Query works progress [GET /progress]
+
++ Response 200 (application/json)
+
+        {
+            "tasks": [
+                {
+                    "type": "face",
+                    "state": "running",
+                    "created_at": 1529721555
+                },
+                {
+                    "type": "dub",
+                    "state": "ready",
+                    "created_at": 1529721589
+                }
+            ]
+        }
+
++ Response 200 (application/json)
+
+        {
+            "tasks": [
+                {
+                    "type": "face",
+                    "state": "finished",
+                    "created_at": 1529721555
+                },
+                {
+                    "type": "dub",
+                    "state": "running",
+                    "created_at": 1529721589
+                }
+            ]
+        }
+
++ Response 200 (application/json)
+
+        {
+            "tasks": [
+                {
+                    "type": "face",
+                    "state": "finished",
+                    "created_at": 1529721555
+                },
+                {
+                    "type": "dub",
+                    "state": "finished",
+                    "created_at": 1529721589
+                }
+            ]
         }
