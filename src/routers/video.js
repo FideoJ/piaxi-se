@@ -19,6 +19,7 @@ function oneVideo() {
   const idRtr = new Router({ mergeParams: true });
 
   idRtr.get('/', videoCtrl.retrieveOne);
+  idRtr.get('/subtitle', videoCtrl.retrieveSubtitle);
 
   return exportRtr(idRtr);
 }
