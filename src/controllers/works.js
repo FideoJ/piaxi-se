@@ -84,7 +84,9 @@ exports.queryProgress = async (ctx) => {
 
   const tasks = [];
   for (const taskInfo of tasksInfo) {
-    tasks.push(pick(JSON.parse(taskInfo), 'type', 'state', 'created_at'));
+    const task = pick(JSON.parse(taskInfo), 'type', 'state', 'created_at');
+    if (task.hasOwnProperty('state'))
+      tasks.push(task);
   }
   return sendData(ctx, { tasks }, 'OK', '任务进度查询成功'); 
 };
