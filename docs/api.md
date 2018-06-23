@@ -66,6 +66,7 @@ HOST: https://piaxi.resetbypear.com/api
     - video_id : 1 (number, required) - Video ID
 
 ### Retrieve one video [GET]
+
 + Response 200 (application/json)
 
         {
@@ -87,6 +88,43 @@ HOST: https://piaxi.resetbypear.com/api
             }
         }
 
+### Retrieve video subtitle [GET /videos/{video_id}/subtitle]
+
++ Parameters
+    - video_id : 1 (number, required) - Video ID
+
++ Response 200 (application/json)
+
+        {
+            "status": "OK",
+            "msg": "获取video字幕成功",
+            "data": {
+                "subtitle": [
+                    {
+                        "startTime": 1000,
+                        "endTime": 2000,
+                        "text": "When you are old and grey and full of sleep,",
+                        "number": 1
+                    },
+                    {
+                        "startTime": 3000,
+                        "endTime": 3500,
+                        "text": "And nodding by the fire，take down this book.",
+                        "number": 2
+                    },
+                    {
+                        "startTime": 4000,
+                        "endTime": 4500,
+                        "text": "And slowly read,and dream of the soft look.",
+                        "number": 3
+                    }
+                ]
+            }
+        }
+
+
+
+                
 # Group Bgm
 
 ## Bgms Collection [/bgms]
@@ -163,10 +201,10 @@ HOST: https://piaxi.resetbypear.com/api
 
 ## Works [/works/{works_id}]
 
+### Start face replacing [POST /works/{works_id}/face-replacing]
+
 + Parameters
     - works_id : 1 (number, required) - Works ID
-
-### Start face replacing [POST /face-replacing]
 
 + Request(application/json)
 
@@ -187,7 +225,48 @@ HOST: https://piaxi.resetbypear.com/api
             }
         }
 
-### Start dubbing [POST /dubbing]
+### Upload subtitle [POST /works/{works_id}/subtitle]
+
++ Parameters
+    - works_id : 1 (number, required) - Works ID
+
++ Request(application/json)
+
+        {
+            "subtitle": [
+                {
+                    "startTime": 1000,
+                    "endTime": 2000,
+                    "text": "When you are old and grey and full of sleep,",
+                    "number": 1
+                },
+                {
+                    "startTime": 3000,
+                    "endTime": 3500,
+                    "text": "And nodding by the fire，take down this book.",
+                    "number": 2
+                },
+                {
+                    "startTime": 4000,
+                    "endTime": 4500,
+                    "text": "And slowly read,and dream of the soft look.",
+                    "number": 3
+                }
+            ]
+        }
+
++ Response 200 (application/json)
+
+        {
+            "status": "OK",
+            "msg": "字幕上传成功",
+            "data": {}
+        }
+
+### Start dubbing [POST /works/{works_id}/dubbing]
+
++ Parameters
+    - works_id : 1 (number, required) - Works ID
 
 + Request(application/json)
 
@@ -208,7 +287,10 @@ HOST: https://piaxi.resetbypear.com/api
             }
         }
 
-### Query works progress [GET /progress]
+### Query works progress [GET /works/{works_id}/progress]
+
++ Parameters
+    - works_id : 1 (number, required) - Works ID
 
 + Response 200 (application/json)
 
